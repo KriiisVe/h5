@@ -134,7 +134,7 @@ button{font-family:var(--body);cursor:pointer}
 
 <div class="wrap">
   <h1>Хеллоуин-квест</h1>
-  <p class="sub">Степени, уравнения и задачи на части — 5 класс</p>
+  <p class="sub"></p>
   <nav class="steps" id="steps" hidden></nav>
   <main id="view"></main>
 </div>
@@ -296,14 +296,14 @@ function go(i){S.step=i;save();render();}
 function nav(){const r=h('div',{class:'navrow'});r.append(S.step>0?h('button',{class:'btn ghost',onclick:()=>go(S.step-1)},'← Назад'):h('span'));r.append(h('button',{class:'btn',onclick:()=>go(S.step+1)},S.step===4?'К итогам →':'Дальше →'));return r;}
 
 function intro(){
-  const inp=h('input',{id:'name',placeholder:'Например, Маша',autocomplete:'off',value:S.name||''});
-  const startBtn=h('button',{class:'btn',onclick:()=>{S.name=inp.value.trim()||'Без имени';if(!S.start)S.start=Date.now();S.step=0;save();render();}},S.start?'Продолжить':'Начать квест');
+
+  const startBtn=h('button',{class:'btn',onclick:()=>{S.name='Без имени';if(!S.start)S.start=Date.now();S.step=0;save();render();}},S.start?'Продолжить':'Начать квест');
   inp.addEventListener('keydown',e=>{if(e.key==='Enter')startBtn.click();});
   view.append(h('section',{class:'card intro'},h('h2',{style:'color:#6b2f86;text-shadow:none'},'Привет!'),
     h('p',{},'Тебя ждут пять испытаний. Каждый ответ проверяется сразу. Ошиблась — получишь подсказку и сможешь перерешать. В конце отправь результат учителю.'),
-    h('ul',{html:'<li>Два ведьминых котла со степенями</li><li>Летучие мыши: правда или ложь</li><li>Две задачи на части</li><li>Башня уравнений: пять этажей от простых к сложным</li>'}),
-    h('p',{style:'font-weight:700;margin:0'},'Решай честно, без калькулятора: учитель увидит, где были ошибки.'),
-    h('label',{for:'name',html:'<b>Как тебя зовут?</b>'}),inp,startBtn));
+    h('ul',{html:''}),
+    h('p',{style:'font-weight:700;margin:0'},''),
+   
 }
 
 /* ---------- sorters ---------- */

@@ -22,9 +22,9 @@
   color-scheme:dark;
 }
 *{box-sizing:border-box}
-html{background:var(--night)}
+html{background:var(--night);min-height:100%}
 body{background:radial-gradient(ellipse at 50% 0%,#3a1858 0%,var(--night2) 40%,var(--night) 100%) fixed,var(--night);
-  color:var(--text);font-family:var(--body);font-size:17px;line-height:1.45;min-height:100vh}
+  color:var(--text);font-family:var(--body);font-size:17px;line-height:1.45;min-height:100%}
 .wrap{max-width:980px;margin:0 auto;padding-block:20px 60px;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 h1,h2,h3,.wet{font-family:var(--display);font-weight:400;letter-spacing:.01em;text-wrap:balance}
@@ -87,6 +87,34 @@ button{font-family:var(--body);cursor:pointer}
 .hint-tap{color:var(--muted);font-size:14px;text-align:center;margin-top:8px}
 .sfb{margin-top:12px}
 
+
+.snap{text-align:center;color:var(--muted);font-weight:700;margin:4px 0 12px}
+.cert{padding:22px 24px;max-width:640px;margin:0 auto}
+.cert-top{text-align:center;border-bottom:2px dashed rgba(92,58,18,.3);padding-bottom:10px;margin-bottom:16px}
+.cert-t{font-family:var(--display);font-size:clamp(30px,7vw,44px);color:#6b2f86}
+.cert-d{color:var(--ink2);font-weight:700;font-size:15px}
+.cert-head{display:flex;gap:20px;align-items:center;flex-wrap:wrap;justify-content:center}
+.ring{width:150px;height:150px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--rc) calc(var(--p)*1%),rgba(92,58,18,.15) 0)}
+.ring.ok{--rc:#2f8f1c}.ring.bad{--rc:#e07a1f}
+.ring-in{width:118px;height:118px;border-radius:50%;background:#fbf3dc;display:grid;place-items:center;text-align:center;align-content:center}
+.ring-in b{font-size:34px;font-weight:900;color:var(--ink);line-height:1}.ring-in span{font-size:11px;color:var(--ink2);font-weight:700}
+.cert-side{display:grid;gap:6px;min-width:0}
+.verdict{font-weight:900;font-size:22px;padding:6px 14px;border-radius:12px;display:inline-block}
+.verdict.ok{background:var(--okbg);color:#163d08}.verdict.bad{background:#ffe3c7;color:#7a3a00}
+.meta{color:var(--ink2);font-weight:700;font-size:15px}
+.bars2{display:grid;gap:8px;margin:18px 0 6px}
+.b2{display:grid;grid-template-columns:minmax(110px,150px) 1fr auto;gap:10px;align-items:center;font-weight:700}
+.b2bar{height:12px;border-radius:6px;background:rgba(92,58,18,.15);overflow:hidden}.b2bar span{display:block;height:100%;background:#8a5ad0;border-radius:6px}
+.b2v{color:var(--ink2)}
+.mis{margin-top:14px;background:rgba(255,255,255,.45);border-radius:12px;padding:10px 14px}
+.mis-t{font-weight:900;margin-bottom:4px}.mis ul{margin:0;padding-left:20px;font-size:15px}.mis li{margin:3px 0}
+.choose .q{font-weight:700;margin:4px 0 8px}
+.opts{display:flex;gap:10px;flex-wrap:wrap}
+.opt{font:900 22px var(--body);padding:8px 18px;border-radius:12px;border:3px solid #8a6a3a;background:rgba(255,255,255,.6);color:var(--ink);min-width:90px}
+.opt.right{border-color:var(--okbd);background:var(--okbg)}.opt.wrongpick{border-color:var(--badbd);background:var(--badbg)}
+.opt[disabled]{cursor:default}
+.stepl{display:inline-block;margin-top:12px;font-size:13px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:#6b2f86}
+.eqline{font-weight:700;margin:6px 0 2px;font-size:18px}.eqline b{font-size:22px}
 /* tower */
 .tower{display:flex;gap:8px;justify-content:center;margin:0 0 16px}
 .win{width:46px;height:58px;border-radius:22px 22px 6px 6px;background:#2a1838;border:3px solid var(--line);display:grid;place-items:center;font-weight:900;color:var(--muted)}
@@ -136,11 +164,60 @@ button{font-family:var(--body);cursor:pointer}
 .tnum{font-variant-numeric:tabular-nums}
 @media (max-width:620px){.zone .zl{font-size:19px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ---- compact: всё на одном экране ---- */
+body{font-size:15px;line-height:1.35}
+.wrap{padding-block:8px 14px;max-width:1100px}
+h1{font-size:clamp(24px,3.4vw,34px);margin:2px 0 0}
+.sub{font-size:13px;margin:0 0 4px}
+.steps{margin:2px 0 8px;gap:4px}
+.steps button{padding:3px 10px;font-size:13px}
+h2{font-size:clamp(20px,2.6vw,28px)}
+.task{padding:7px 12px;margin:6px 0 10px;font-size:15px;border-width:2px;border-radius:16px}
+.navrow{margin-top:10px}
+.btn{padding:9px 18px;font-size:16px;border-radius:13px}
+.btn.sm{padding:6px 12px;font-size:14px}
+.fb{margin-top:6px;padding:6px 10px;font-size:14px}
+.card{border-width:4px;box-shadow:0 3px 0 var(--wood)}
+.sorter{gap:8px}
+.zone{min-height:0;padding:6px;border-width:3px;border-radius:16px}
+.zone .zl{font-size:19px}
+.kwrap{width:min(100%,150px)}
+.kwrap .kn{font-size:clamp(22px,3vw,34px)}
+.zimg{width:min(100%,120px)}
+.item{width:clamp(64px,7.5vw,92px)}
+.item .tag{font-size:clamp(14px,1.6vw,18px);padding:1px 8px;border-width:2px}
+.bats .item{width:clamp(96px,10vw,122px)}
+.sfb{margin-top:6px}
+@media (min-width:760px){.sorter{grid-template-columns:1.25fr 1fr 1fr}.shelf{grid-column:auto}}
+.ptabs{display:flex;gap:8px;margin:0 0 8px}
+.ptab{border:2px solid var(--line);background:var(--panel);color:var(--muted);border-radius:999px;padding:4px 14px;font-weight:700;font-size:14px}
+.ptab.on{border-color:var(--pumpkin);color:#fff}.ptab.done::after{content:" ✓";color:var(--slime)}
+.prob{padding:10px 14px;gap:10px}.prob .n{width:34px;height:34px;font-size:15px}
+.pt{font-size:16px;margin:0 0 2px}
+.stepl{margin-top:6px;font-size:12px}
+.opt{font-size:18px;padding:5px 14px;min-width:70px}
+.choose .q{margin:2px 0 6px}
+.eqline{font-size:16px;margin:4px 0 0}.eqline b{font-size:19px}
+.ask{margin-top:4px}.ask input{width:96px;font-size:18px;padding:4px 8px}
+.tw-layout{grid-template-columns:150px 1fr;gap:14px}
+.tw-art svg{max-height:62vh}
+.floor{padding:10px 14px}.floor h3{font-size:clamp(19px,2.4vw,24px)}
+.floor .eq{padding-top:6px;margin-top:6px}.floor .eq .e{font-size:clamp(18px,2.2vw,22px)}
+.intro{padding:16px}
+.snap{margin:0 0 6px;font-size:14px}
+.cert{padding:12px 18px}.cert-top{padding-bottom:6px;margin-bottom:10px}.cert-t{font-size:clamp(24px,3.6vw,32px)}
+.ring{width:112px;height:112px}.ring-in{width:88px;height:88px}.ring-in b{font-size:26px}.ring-in span{font-size:10px}
+.verdict{font-size:18px;padding:4px 12px}.meta{font-size:13px}
+.bars2{margin:10px 0 4px;gap:5px}.b2{font-size:14px}
+.mis{margin-top:8px;padding:6px 12px}.mis ul{font-size:13px}
+@media (max-width:700px){.tw-art{width:90px}.tw-layout{grid-template-columns:1fr}}
+.okin{color:#1f6b10;font-weight:800;font-size:14px;background:var(--okbg);border:2px solid var(--okbd);border-radius:10px;padding:4px 10px}.okin:empty{display:none}
 </style>
 
 <div class="wrap">
   <h1>Хеллоуин-квест</h1>
-  <p class="sub">Степени, уравнения и задачи на части — 5 класс</p>
+  <p class="sub">Домашнее задание · 5 класс</p>
   <nav class="steps" id="steps" hidden></nav>
   <main id="view"></main>
 </div>
@@ -233,19 +310,20 @@ const pl=(n,f)=>{const a=n%10,b=n%100;return f[a===1&&b!==11?0:a>=2&&a<=4&&(b<12
 const raz=k=>k>=2&&k<=4?'раза':'раз';
 function genProblems(){
   const N=(n,f)=>`${n} ${pl(n,f)}`;
+  // xn — что обозначаем за x, yn — второе количество; less — в условии «меньше»
   const SMALL=[
-    ()=>{const k=ri(2,6),p=ri(5,15),n=p*(k+1);return {t:`В котле ${N(n,['литр','литра','литров'])} зелья. Зелёного в ${k} ${raz(k)} больше, чем фиолетового. Сколько литров фиолетового?`,lab:['фиолетовое','зелёное'],k,p,n,big:false};},
-    ()=>{const k=ri(2,6),p=ri(6,20),n=p*(k+1);return {t:`Дети собрали ${N(n,['конфету','конфеты','конфет'])}. Шоколадных в ${k} ${raz(k)} меньше, чем мармеладных. Сколько шоколадных?`,lab:['шоколадные','мармеладные'],k,p,n,big:false};},
-    ()=>{const k=ri(3,6),p=ri(101,250),n=p*(k+1);return {t:`На ферме собрали ${n} кг тыкв. Оранжевых в ${k} ${raz(k)} больше, чем белых. Сколько килограммов белых?`,lab:['белые','оранжевые'],k,p,n,big:false};}];
+    ()=>{const k=ri(2,6),p=ri(5,15),n=p*(k+1);return {t:`В котле ${N(n,['литр','литра','литров'])} зелья — зелёного и фиолетового. Зелёного в ${k} ${raz(k)} больше, чем фиолетового. Сколько литров фиолетового зелья?`,xn:'фиолетового зелья',yn:'зелёного',k,p,n,big:false,less:false};},
+    ()=>{const k=ri(2,6),p=ri(6,20),n=p*(k+1);return {t:`Дети собрали ${N(n,['конфету','конфеты','конфет'])} — шоколадные и мармеладные. Шоколадных в ${k} ${raz(k)} меньше, чем мармеладных. Сколько шоколадных конфет?`,xn:'шоколадных конфет',yn:'мармеладных',k,p,n,big:false,less:true};},
+    ()=>{const k=ri(3,6),p=ri(101,250),n=p*(k+1);return {t:`На ферме собрали ${n} кг тыкв — оранжевых и белых. Оранжевых в ${k} ${raz(k)} больше, чем белых. Сколько килограммов белых тыкв?`,xn:'белых тыкв',yn:'оранжевых',k,p,n,big:false,less:false};}];
   const BIG=[
-    ()=>{const k=ri(3,7),p=ri(5,14),n=p*(k+1);return {t:`В замке ${N(n,['жилец','жильца','жильцов'])}. Летучих мышей в ${k} ${raz(k)} больше, чем привидений. Сколько летучих мышей?`,lab:['привидения','мыши'],k,p,n,big:true};},
-    ()=>{const k=ri(2,4),p=ri(101,300),n=p*(k+1);return {t:`Сшили ${N(n,['костюм','костюма','костюмов'])}. Вампирских в ${k} ${raz(k)} меньше, чем ведьминых. Сколько ведьминых?`,lab:['вампирские','ведьмины'],k,p,n,big:true};},
-    ()=>{const k=ri(2,6),p=ri(6,15),n=p*(k+1);return {t:`Два паука поймали ${N(n,['муху','мухи','мух'])}. Первый поймал в ${k} ${raz(k)} больше, чем второй. Сколько мух у первого?`,lab:['второй','первый'],k,p,n,big:true};}];
-  return [pick(SMALL)(),pick(BIG)()].map(P=>Object.assign(P,{parts:P.k+1,ans:P.big?P.p*P.k:P.p}));
+    ()=>{const k=ri(3,7),p=ri(5,14),n=p*(k+1);return {t:`В замке живут ${N(n,['жилец','жильца','жильцов'])} — летучие мыши и привидения. Летучих мышей в ${k} ${raz(k)} больше, чем привидений. Сколько летучих мышей?`,xn:'привидений',yn:'летучих мышей',k,p,n,big:true,less:false};},
+    ()=>{const k=ri(2,4),p=ri(101,300),n=p*(k+1);return {t:`Сшили ${N(n,['костюм','костюма','костюмов'])} — вампира и ведьмы. Костюмов вампира в ${k} ${raz(k)} меньше, чем костюмов ведьмы. Сколько костюмов ведьмы?`,xn:'костюмов вампира',yn:'костюмов ведьмы',k,p,n,big:true,less:true};},
+    ()=>{const k=ri(2,6),p=ri(6,15),n=p*(k+1);return {t:`Два паука поймали ${N(n,['муху','мухи','мух'])}. Первый поймал в ${k} ${raz(k)} больше, чем второй. Сколько мух поймал первый паук?`,xn:'мух у второго паука',yn:'мух у первого',k,p,n,big:true,less:false};}];
+  return [pick(SMALL)(),pick(BIG)()].map(P=>Object.assign(P,{ans:P.big?P.p*P.k:P.p}));
 }
 function generate(seed){
   R=rng(seed);
-  const keys=shuffle(Object.keys(CAULDRONS)).slice(0,2);
+  const keys=shuffle(Object.keys(CAULDRONS)).slice(0,1);
   const cauldrons=keys.map((T,ci)=>{const cfg=CAULDRONS[T];
     const items=shuffle([...shuffle(cfg.C).slice(0,3).map(e=>({e,ok:true})),...shuffle(cfg.X).slice(0,3).map(e=>({e,ok:false}))]);
     const icons=shuffle(ICONS); items.forEach((it,i)=>it.icon='ing_'+icons[i]);
@@ -257,7 +335,7 @@ function generate(seed){
   return {cauldrons,bats,problems,tower};
 }
 /* ================= state ================= */
-const KEY='hq5-state-v3';
+const KEY='hq5-state-v4';
 let S=fresh(), G=null;
 function fresh(){return {name:'',seed:(Date.now()%2147483647)>>>0,attempt:1,step:-1,start:0,items:{},inp:{},history:[]};}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
@@ -272,14 +350,13 @@ function reveal(id){const x=it(id);x.done=true;x.ok=false;x.shown=true;save();}
 function sectionItems(){
   return {
     c0:G.cauldrons[0].items.map((_,i)=>'c0-'+i),
-    c1:G.cauldrons[1].items.map((_,i)=>'c1-'+i),
     bats:G.bats.map((_,i)=>'bat-'+i),
     pr:G.problems.map((_,i)=>'pr-'+i),
     eq:towerIds().flat()};
 }
 const SECTIONS=[
- {id:'c0',name:()=>'Котёл '+G.cauldrons[0].T},{id:'c1',name:()=>'Котёл '+G.cauldrons[1].T},{id:'bats',name:()=>'Летучие мыши'},
- {id:'pr',name:()=>'Задачи на части'},{id:'eq',name:()=>'Башня уравнений'}];
+ {id:'c0',name:()=>'Котёл '+G.cauldrons[0].T},{id:'bats',name:()=>'Летучие мыши'},
+ {id:'pr',name:()=>'Задачи'},{id:'eq',name:()=>'Башня уравнений'}];
 const towerIds=()=>G.tower.map((F,f)=>(F.eqs||F.chk).map((_,i)=>`t-${f}-${i}`));
 const HINTS={c0:'Степень — это одинаковые множители, а не основание, умноженное на показатель: 3<sup>4</sup> = 3·3·3·3 = 81, а 3·4 = 12.',bats:'Считай левую и правую части отдельно. 1 в любой степени — 1, а 0 в любой степени — 0.',
  pr:'Меньшее — 1 часть, большее — во столько частей, во сколько раз оно больше. Всё делим на число частей. Смотри, о чём спрашивают: о меньшем или о большем.',
@@ -288,25 +365,23 @@ HINTS.c1=HINTS.c0;
 
 /* ================= render ================= */
 const view=document.getElementById('view'), stepsEl=document.getElementById('steps');
-const STEPS=['c0','c1','bats','pr','eq','end'];
+const STEPS=['c0','bats','pr','eq','end'];
 const h=(t,a={},...c)=>{const e=document.createElement(t);for(const k in a){if(k==='html')e.innerHTML=a[k];else if(k.startsWith('on'))e.addEventListener(k.slice(2),a[k]);else if(a[k]!==false&&a[k]!=null)e.setAttribute(k,a[k]===true?'':a[k]);}c.flat().forEach(x=>x!=null&&e.append(x));return e;};
 const secDone=id=>sectionItems()[id].every(i=>it(i).done);
 function render(keepScroll){
   const y=scrollY; view.innerHTML=''; stepsEl.hidden=S.step<0; stepsEl.innerHTML='';
-  if(S.step>=0) STEPS.forEach((id,i)=>stepsEl.append(h('button',{class:(i===S.step?'on ':'')+(i<5&&secDone(id)?'done':''),onclick:()=>go(i)},i<5?SECTIONS[i].name():'Итог')));
+  if(S.step>=0) STEPS.forEach((id,i)=>stepsEl.append(h('button',{class:(i===S.step?'on ':'')+(i<4&&secDone(id)?'done':''),onclick:()=>go(i)},i<4?SECTIONS[i].name():'Итог')));
   if(S.step<0) intro();
-  else {const id=STEPS[S.step]; if(id==='c0'||id==='c1')sorterC(+id[1]); else if(id==='bats')sorterB(); else if(id==='pr')problems(); else if(id==='eq')tower(); else ending();}
+  else {const id=STEPS[S.step]; if(id==='c0')sorterC(0); else if(id==='bats')sorterB(); else if(id==='pr')problems(); else if(id==='eq')tower(); else ending();}
   if(keepScroll) scrollTo(0,y); else scrollTo({top:0});
 }
 function go(i){S.step=i;save();render();}
-function nav(){const r=h('div',{class:'navrow'});r.append(S.step>0?h('button',{class:'btn ghost',onclick:()=>go(S.step-1)},'← Назад'):h('span'));r.append(h('button',{class:'btn',onclick:()=>go(S.step+1)},S.step===4?'К итогам →':'Дальше →'));return r;}
+function nav(){const r=h('div',{class:'navrow'});r.append(S.step>0?h('button',{class:'btn ghost',onclick:()=>go(S.step-1)},'← Назад'):h('span'));r.append(h('button',{class:'btn',onclick:()=>go(S.step+1)},S.step===3?'К итогам →':'Дальше →'));return r;}
 
 function intro(){
   const startBtn=h('button',{class:'btn',onclick:()=>{if(!S.start)S.start=Date.now();S.step=0;save();render();}},S.start?'Продолжить':'Начать квест');
   view.append(h('section',{class:'card intro'},h('h2',{style:'color:#6b2f86;text-shadow:none'},'Привет!'),
-    h('p',{},'Тебя ждут пять испытаний. Каждый ответ проверяется сразу. Ошиблась — получишь подсказку и сможешь перерешать. В конце отправь результат учителю.'),
-    h('ul',{html:'<li>Два ведьминых котла со степенями</li><li>Летучие мыши: правда или ложь</li><li>Две задачи на части</li><li>Башня уравнений: пять этажей от простых к сложным</li>'}),
-    h('p',{style:'font-weight:700;margin:0 0 16px'},'Решай честно, без калькулятора: учитель увидит, где были ошибки.'),
+    h('p',{},'Каждый ответ проверяется сразу. Ошиблась — получишь подсказку и сможешь перерешать. В конце сфотографируй или скопируй результат и отправь учителю.'),
     startBtn));
 }
 
@@ -343,7 +418,7 @@ function sorter(sec,items,z){
   });
   if(zones[''].querySelector('.items').children.length===0) zones[''].querySelector('.items').append(h('div',{style:'color:var(--slime);font-weight:900;padding:14px'},'Всё разложено!'));
   const fb=h('div',{class:'sfb',id:'sfb',role:'status','aria-live':'polite'}); if(lastFb&&lastFb.sec===sec) fb.append(h('div',{class:'fb '+lastFb.cls,html:lastFb.html}));
-  view.append(grid,fb,h('p',{class:'hint-tap'},'Перетаскивай пальцем или мышкой. Или нажми на картинку, а потом на место, куда её отправить.'),nav());
+  view.append(grid,fb,nav());
   grid.dataset.sec=sec;
 }
 function drop(items,key,zone){
@@ -378,8 +453,8 @@ function asker(id,label,correct,onWrong,onDone,opts={}){
   const st=it(id); const box=h('div');
   const inp=h('input',{id:'in-'+id,inputmode:'numeric',autocomplete:'off',value:st.done?String(correct):(S.inp[id]??''),disabled:st.done,class:st.done?'good':''});
   const btn=h('button',{class:'btn sm',disabled:st.done},'Проверить');
-  const fbBox=h('div',{role:'status','aria-live':'polite'});
-  const show=(cls,html)=>{fbBox.innerHTML='';fbBox.append(h('div',{class:'fb '+cls,html}));};
+  const fbBox=h('div',{role:'status','aria-live':'polite'}); const inl=h('span',{class:'okin'});
+  const show=(cls,html)=>{fbBox.innerHTML='';inl.innerHTML='';if(cls==='ok'){inl.innerHTML=html;}else fbBox.append(h('div',{class:'fb '+cls,html}));};
   if(st.done) show(st.shown?'show':'ok',st.shown?(opts.solution?opts.solution():'Правильный ответ: '+correct):(opts.okText?opts.okText():'Верно!'));
   else if(S.inp['fb-'+id]) show('bad',S.inp['fb-'+id]);
   inp.addEventListener('input',()=>{S.inp[id]=inp.value;save();});
@@ -391,41 +466,85 @@ function asker(id,label,correct,onWrong,onDone,opts={}){
     const msg=onWrong(v,t); S.inp['fb-'+id]=msg; save(); show('bad',msg); inp.classList.add('shake'); setTimeout(()=>inp.classList.remove('shake'),450); inp.select();
   };
   btn.addEventListener('click',doCheck); inp.addEventListener('keydown',e=>{if(e.key==='Enter')doCheck();});
-  box.append(h('label',{class:'ask',for:'in-'+id,html:label},inp,btn),fbBox);
+  box.append(h('label',{class:'ask',for:'in-'+id,html:label},inp,btn,inl),fbBox);
   return box;
 }
 
 /* ---------- problems ---------- */
-function bars(P,showNums){
-  const row=(lab,n,cls)=>h('div',{class:'brow'},h('span',{class:'blab'},lab),h('span',{class:'blocks'},Array.from({length:n},()=>h('span',{class:'blk '+cls},showNums?String(P.p):''))));
-  return h('div',{class:'bars'},row(P.lab[0],1,'b1'),row(P.lab[1],P.k,'b2'),h('div',{class:'btot'},`всего ${P.n}`));
+function chooser(id,question,opts,correct,hint,solution){
+  const st=it(id); const box=h('div',{class:'choose'}); box.append(h('div',{class:'q',html:question}));
+  const row=h('div',{class:'opts'});
+  opts.forEach(o=>{const picked=S.inp['ch-'+id]===o;
+    row.append(h('button',{class:'opt'+(st.done&&o===correct?' right':'')+(!st.done&&picked?' wrongpick':''),disabled:st.done,html:fmt(o),onclick:()=>{
+      S.inp['ch-'+id]=o;
+      if(o===correct){right(id);}else{const n=wrong(id);if(n>=2)reveal(id);}
+      save();render(true);}}));});
+  box.append(row);
+  if(st.done&&st.shown) box.append(h('div',{class:'fb show',html:solution}));
+  else if(st.tries) box.append(h('div',{class:'fb bad',html:'Не так. '+hint}));
+  return box;
 }
 function problems(){
-  view.append(h('h2',{},'Ведьмины задачи'),h('div',{class:'task',html:'Сначала — <b>сколько частей</b>, потом ответ.'}));
+  view.append(h('h2',{},'Ведьмины задачи'),h('div',{class:'task',html:'Решаем уравнением, как в учебнике: <b>обозначь меньшее количество за x</b>.'}));
   const list=h('div',{class:'plist'});
+  const pi=+(S.inp.pi||0);
+  const tabs=h('div',{class:'ptabs'});
+  G.problems.forEach((P,i)=>tabs.append(h('button',{class:'ptab'+(i===pi?' on':'')+(it('pr-'+i).done?' done':''),onclick:()=>{S.inp.pi=i;save();render(true);}},`Задача ${i+1}`)));
+  view.append(tabs);
   G.problems.forEach((P,i)=>{
-    const pid='prp-'+i, aid='pr-'+i, one=P.p, pw=pl(P.k,['часть','части','частей']);
+    if(i!==pi) return;
+    const cid='prc-'+i, xid='prx-'+i, aid='pr-'+i, K=P.k;
     const body=h('div',{},h('p',{class:'pt',html:P.t}));
-    body.append(asker(pid,'Сколько всего частей? ',P.parts,(v,t)=>t===1?`${P.lab[0][0].toUpperCase()+P.lab[0].slice(1)} — 1 часть. А сколько частей у другого?`:`1 + ${P.k} = ?`,()=>render(true),
-      {solution:()=>`1 + ${P.k} = ${P.parts}`,okText:()=>`Верно! 1 + ${P.k} = ${P.parts}`}));
-    if(it(pid).done){
-      body.append(bars(P,it(aid).done));
-      body.append(asker(aid,'Ответ: ',P.ans,(v,t)=>{
-        if(P.big&&v===one) return `Это 1 часть. А спрашивают про ${P.lab[1]} — это ${P.k} ${pw}.`;
-        if(!P.big&&v===P.p*P.k) return `Это ${P.lab[1]}. А спрашивают про ${P.lab[0]} — 1 часть.`;
-        return `1 часть = ${P.n} : ${P.parts}. Посчитай ещё раз.`;
-      },()=>render(true),{solution:()=>P.big?`${P.n} : ${P.parts} = ${one}, ${one} · ${P.k} = ${P.ans}`:`${P.n} : ${P.parts} = ${P.ans}`,okText:()=>'Верно!'}));
+    const kx=`${K}x`;
+    const why=P.less?`«${P.xn[0].toUpperCase()+P.xn.slice(1)} в ${K} ${raz(K)} меньше» — значит, ${P.yn} в ${K} ${raz(K)} больше, то есть ${fmt(kx)}.`:`«В ${K} ${raz(K)} больше» — значит, умножаем на ${K}: ${fmt(kx)}.`;
+    body.append(h('div',{class:'stepl'},'Шаг 1'));
+    body.append(chooser(cid,`Пусть ${P.xn} — <i>x</i>. Тогда ${P.yn} — …`,shuffleStable([kx,`x + ${K}`,`${K}`],i),kx,why,'Правильно так: '+why));
+    if(it(cid).done){
+      const eqs=`x + ${K}x = ${P.n}`;
+      body.append(h('div',{class:'stepl'},'Шаг 2'));
+      body.append(h('div',{class:'eqline',html:`Всего ${P.n}, значит: <b>${fmt(eqs)}</b>`}));
+      body.append(asker(xid,'<i>x</i> = ',P.p,(v,tt)=>tt===1?`Сначала сложи подобные: ${fmt('x')} — это 1${fmt('x')}, поэтому ${fmt(`x + ${K}x`)} = ${fmt(`${K+1}x`)}.`:`${fmt(`${K+1}x`)} = ${P.n}, значит ${fmt('x')} = ${P.n} : ${K+1}. Ещё ошибка — покажу решение.`,
+        ()=>{if(!P.big){const a=it(aid);a.done=true;a.ok=it(xid).ok;a.shown=it(xid).shown;save();}render(true);},
+        {solution:()=>`${fmt(`x + ${K}x`)} = ${fmt(`${K+1}x`)}, ${fmt(`${K+1}x`)} = ${P.n}, ${fmt('x')} = ${P.n} : ${K+1} = ${P.p}`,okText:()=>`Верно! ${fmt('x')} = ${P.p}`+(P.big?'':` — это и есть ${P.xn}. Ответ: ${P.p}.`)}));
     }
+    if(P.big&&it(xid).done){
+      body.append(h('div',{class:'stepl'},'Шаг 3'));
+      body.append(asker(aid,`Сколько ${P.yn}? `,P.ans,(v,tt)=>v===P.p?`Это x — ${P.xn}. А ${P.yn} — это ${fmt(kx)}.`:`${P.yn[0].toUpperCase()+P.yn.slice(1)} — это ${fmt(kx)} = ${K} · ${P.p}.`,()=>render(true),
+        {solution:()=>`${fmt(kx)} = ${K} · ${P.p} = ${P.ans}`,okText:()=>`Верно! ${fmt(kx)} = ${K} · ${P.p} = ${P.ans}. Ответ: ${P.ans}.`}));
+    }
+    if(it(aid).done&&i<G.problems.length-1) body.append(h('button',{class:'btn green sm',style:'margin-top:10px',onclick:()=>{S.inp.pi=i+1;save();render(true);}},'Следующая задача →'));
     list.append(h('div',{class:'card prob'},h('div',{class:'n'},String(i+1)),body));
   });
   view.append(list,nav());
 }
-const probOk=i=>it('prp-'+i).ok&&it('pr-'+i).ok;
+function shuffleStable(a,seed){const r=rng(S.seed+seed*97);a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+const probOk=i=>it('prc-'+i).ok&&it('prx-'+i).ok&&it('pr-'+i).ok;
 
 /* ---------- tower ---------- */
 function lhsAt(l,v){return l.replace(/(\d)x/g,'$1 · x').replace(/\bx\b/g,String(v));}
-function substitute(eq,v){const [l,r]=eq.t.split(' = ');const sl=lhsAt(l,v);const lv=val(sl);
-  return Number.isInteger(lv)&&lv>=0?`Подставим x = ${v}: ${fmt(sl)} = ${lv}, а должно быть ${r}.`:`Подставим x = ${v}: ${fmt(sl)} — нацело не получается, а должно быть ${r}.`;}
+function bracketsOk(l,v){const bs=[...lhsAt(l,v).matchAll(/\(([^()]*)\)/g)].map(m=>val(m[1]));return bs.every(b=>Number.isInteger(b)&&b>=0);}
+function substitute(eq,v){const [l,r]=eq.t.split(' = ');if(!bracketsOk(l,v))return '';const lv=val(lhsAt(l,v));
+  return Number.isInteger(lv)&&lv>=0?`Проверка: при ${fmt('x')} = ${v} получается ${lv}, а нужно ${r}. `:'';}
+function eqHint(eq){
+  const T=eq.type, n=eq.t.match(/\d+/g).map(Number), X=fmt('x'), br=(eq.t.match(/\(([^()]*)\)/)||[])[1], B=br?'('+fmt(br)+')':'';
+  const role={l:'неизвестное слагаемое',p:'неизвестное слагаемое',i:'неизвестное слагаемое',k:'неизвестное слагаемое',j:'неизвестное слагаемое',g:'уменьшаемое',o:'уменьшаемое',q:'уменьшаемое',h:'вычитаемое',m:'вычитаемое',n:'вычитаемое'};
+  const step={l:`${n[2]} − ${n[0]}`,p:`${n[2]} − ${n[1]}`,g:`${n[2]} + ${n[1]}`,i:`${n[2]} − ${n[1]}`,k:`${n[2]} − ${n[0]}`,h:`${n[0]} − ${n[2]}`,j:`${n[2]} − ${n[1]}`,m:`${n[0]} − ${n[2]}`,n:`${n[0]} − ${n[2]}`,o:`${n[2]} + ${n[1]}`,q:`${n[2]} + ${n[1]}`};
+  switch(T){
+    case 'a':return `${X} — неизвестное слагаемое: из суммы вычти известное слагаемое. ${X} = ${n[1]} − ${n[0]}.`;
+    case 'b':return `${X} — вычитаемое: из уменьшаемого вычти разность. ${X} = ${n[0]} − ${n[1]}.`;
+    case 'c':return `${X} — уменьшаемое: к разности прибавь вычитаемое. ${X} = ${n[1]} + ${n[0]}.`;
+    case 'd':return `${X} — неизвестный множитель: произведение раздели на известный множитель. ${X} = ${n[1]} : ${n[0]}.`;
+    case 'e':return `${X} — делитель: делимое раздели на частное. ${X} = ${n[0]} : ${n[1]}.`;
+    case 'f':return `${X} — делимое: частное умножь на делитель. ${X} = ${n[1]} · ${n[0]}.`;
+    case 'L1':return `Сначала сложи подобные: ${fmt(n[0]+'x')} + ${fmt(n[1]+'x')} = ${fmt((n[0]+n[1])+'x')}. Получится ${fmt((n[0]+n[1])+'x')} = ${n[2]}.`;
+    case 'L2':return `Сначала вычти подобные: ${fmt(n[0]+'x')} − ${fmt(n[1]+'x')} = ${fmt((n[0]-n[1])+'x')}. Получится ${fmt((n[0]-n[1])+'x')} = ${n[2]}.`;
+    case 'L3':return `${X} — это 1${X}. Сначала посчитай: ${n[0]} + 1 − ${n[1]} = ${n[0]+1-n[1]}, то есть ${fmt((n[0]+1-n[1])+'x')} = ${n[2]}.`;
+    case 'L4':case 'L4b':{const plusX=/x \+ \d+x/.test(eq.t), k=plusX?n[0]+n[1]:n[0]-n[1], tail=eq.t.match(/x ([+−]) (\d+) =/);
+      return `Сначала приведи подобные: ${fmt(n[0]+'x')} ${plusX?'+':'−'} ${fmt(n[1]+'x')} = ${fmt(k+'x')}. Получится ${fmt(k+'x')} ${tail[1]} ${tail[2]} = ${n[3]} — найди ${fmt(k+'x')}, а потом ${X}.`;}
+    case 'L5':return `Сначала перемножь числа: ${n[0]} · ${n[1]} = ${n[0]*n[1]}. Получится ${fmt((n[0]*n[1])+'x')} = ${n[2]}.`;
+    default:return `Скобка ${B} — ${role[T]}. Найди её: ${B} = ${step[T]}. Потом найди ${X}.`;
+  }
+}
 const floorDone=f=>towerIds()[f].every(i=>it(i).done);
 const curFloor=()=>{const f=G.tower.findIndex((_,i)=>!floorDone(i));return f<0?4:f;};
 let viewFloor=null;
@@ -477,7 +596,7 @@ function tower(){
   const card=h('section',{class:'card floor'},h('h3',{},`Этаж ${f+1}. ${F.name}`));
   if(F.eqs) F.eqs.forEach((eq,i)=>{const id=`t-${f}-${i}`;
     card.append(h('div',{class:'eq'},h('div',{class:'e',html:fmt(eq.t)}),
-      asker(id,'<i>x</i> = ',eq.r,(v,t)=>substitute(eq,v)+' '+EQ_RULE[eq.rule]+(t===2?' Ещё ошибка — покажу решение.':''),afterAnswer,
+      asker(id,'<i>x</i> = ',eq.r,(v,t)=>(t===1?'Неверно. ':'Снова неверно. ')+substitute(eq,v)+eqHint(eq)+(t===2?' Ещё ошибка — покажу решение.':''),afterAnswer,
         {solution:()=>`Решение: ${fmt(eq.steps)}.`,okText:()=>`Верно! ${fmt(lhsAt(eq.t.split(' = ')[0],eq.r))} = ${eq.t.split(' = ')[1]}`})));});
   if(F.chk) F.chk.forEach((c,i)=>{const id=`t-${f}-${i}`,st=it(id);
     const [l,r]=c.eq.t.split(' = ');const sl=lhsAt(l,c.cand);const lv=val(sl);
@@ -508,7 +627,7 @@ function mistakes(){
   const out=[];
   G.cauldrons.forEach((C,ci)=>C.items.forEach((x,i)=>{const s=it(`c${ci}-${i}`);if(s.tries)out.push(`Котёл ${C.T}: ${sup(x.e)} — ${x.ok?'нужно было в котёл':'нужно было в гадости'}`);}));
   G.bats.forEach((b,i)=>{if(it('bat-'+i).tries)out.push(`Мыши: ${sup(b.s)} (${b.ok?'верно':'неверно'})`);});
-  G.problems.forEach((P,i)=>{const a=it('prp-'+i),b=it('pr-'+i);if(a.tries||b.tries)out.push(`Задача ${i+1}: ${a.tries?'части ×'+a.tries:''}${a.tries&&b.tries?', ':''}${b.tries?'ответ ×'+b.tries:''}${a.shown||b.shown?' (показано решение)':''}`);});
+  G.problems.forEach((P,i)=>{const a=it('prc-'+i),x=it('prx-'+i),b=it('pr-'+i);const parts=[];if(a.tries)parts.push('запись через x');if(x.tries)parts.push('уравнение');if(P.big&&b.tries)parts.push('ответ');if(parts.length)out.push(`Задача ${i+1}: ошибки — ${parts.join(', ')}${a.shown||x.shown||b.shown?' (показано решение)':''}`);});
   G.tower.forEach((F,f)=>(F.eqs||F.chk).forEach((q,i)=>{const x=it(`t-${f}-${i}`);if(!x.tries)return;
     out.push(F.eqs?`Этаж ${f+1}: ${sup(q.t)} — ошибок ${x.tries}${x.shown?' (показано решение)':''}`:`Этаж 3: «${q.cand} — корень ${q.eq.t}?» — ответила неверно`);}));
   return out;
@@ -517,34 +636,37 @@ function ending(){
   const SI=sectionItems(); const left=SECTIONS.filter(s=>!SI[s.id].every(i=>it(i).done));
   if(left.length){
     view.append(h('section',{class:'card res'},h('h2',{style:'color:#6b2f86;text-shadow:none'},'Ещё не всё'),
-      h('p',{},'Чтобы увидеть результат, закончи эти главы:'),
+      h('p',{},'Чтобы увидеть результат, закончи эти задания:'),
       h('div',{class:'todo'},left.map(s=>h('button',{class:'btn sm',onclick:()=>go(STEPS.indexOf(s.id))},s.name())))),
-      h('div',{class:'navrow'},h('button',{class:'btn ghost',onclick:()=>go(4)},'← Назад'),h('span')));
+      h('div',{class:'navrow'},h('button',{class:'btn ghost',onclick:()=>go(3)},'← Назад'),h('span')));
     return;
   }
   const sc=score(); const ok=sc.pct>=PASS;
   if(!S.history.find(x=>x.attempt===S.attempt)){S.history.push({attempt:S.attempt,pct:sc.pct,got:sc.got,max:sc.max,mins:Math.max(1,Math.round((Date.now()-S.start)/60000)),at:Date.now()});save();}
-  const rec=S.history.find(x=>x.attempt===S.attempt);
-  const box=h('section',{class:'card res'});
-  box.append(h('h2',{style:'color:#6b2f86;text-shadow:none'},ok?'Квест пройден!':'Почти получилось'));
-  box.append(h('div',{class:'score '+(ok?'ok':'bad')+' tnum'},sc.pct+'%'));
-  box.append(h('p',{style:'margin:0;font-weight:700'},`С первой попытки верно ${sc.got} из ${sc.max}. ${ok?'Отличная работа!':'Чтобы пройти квест, нужно 85% и больше с первой попытки.'}`));
-  const rows=h('div',{class:'rows'});
-  SECTIONS.forEach(s=>{const p=sc.per[s.id],miss=p.ok<p.max;const r=h('div',{class:'row'+(miss?' miss':'')},h('span',{},s.name()),h('span',{class:'tnum'},`${p.ok} / ${p.max}`));
-    if(miss&&!ok)r.append(h('span',{class:'h',html:'Повтори: '+HINTS[s.id]}));rows.append(r);});
-  box.append(rows);
-  const ms=mistakes(); const d=new Date(rec.at);
-  const rep=[`Хеллоуин-квест (5 класс)`,`Попытка: ${S.attempt}`,`С первой попытки: ${sc.got} из ${sc.max} (${sc.pct}%) — ${ok?'зачёт':'нужно повторить'}`,
+  const rec=S.history.find(x=>x.attempt===S.attempt); const d=new Date(rec.at);
+  const date=`${d.toLocaleDateString('ru-RU')}, ${d.toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'})}`;
+  const ms=mistakes();
+  view.append(h('p',{class:'snap'},'Сфотографируй эту карточку или нажми «Скопировать» и отправь учителю'));
+  const card=h('section',{class:'card cert'});
+  card.append(h('div',{class:'cert-top'},h('div',{class:'cert-t'},'Хеллоуин-квест'),h('div',{class:'cert-d'},`Домашнее задание · ${date}`)));
+  const ring=h('div',{class:'ring '+(ok?'ok':'bad'),style:`--p:${sc.pct}`},h('div',{class:'ring-in'},h('b',{class:'tnum'},sc.pct+'%'),h('span',{},'с первой попытки')));
+  const side=h('div',{class:'cert-side'},
+    h('div',{class:'verdict '+(ok?'ok':'bad')},ok?'Зачёт ✓':'Нужно повторить'),
+    h('div',{class:'meta'},`Верно ${sc.got} из ${sc.max}`),
+    h('div',{class:'meta'},`Время: ${rec.mins} мин · попытка ${S.attempt}`));
+  card.append(h('div',{class:'cert-head'},ring,side));
+  const rows=h('div',{class:'bars2'});
+  SECTIONS.forEach(s=>{const p=sc.per[s.id];rows.append(h('div',{class:'b2'},h('span',{class:'b2n'},s.name()),h('span',{class:'b2bar'},h('span',{style:`width:${Math.round(p.ok/p.max*100)}%`})),h('span',{class:'b2v tnum'},`${p.ok}/${p.max}`)));});
+  card.append(rows);
+  card.append(h('div',{class:'mis'},h('div',{class:'mis-t'},ms.length?'Где были ошибки':'Ошибок не было!'),ms.length?h('ul',{},ms.map(m=>h('li',{},m))):null));
+  if(S.history.length>1) card.append(h('div',{class:'meta',style:'margin-top:8px'},`Прошлые попытки: ${S.history.filter(x=>x.attempt!==S.attempt).map(x=>x.pct+'%').join(', ')}`));
+  view.append(card);
+  const rep=[`Хеллоуин-квест — домашнее задание`,`${date}`,`Результат: ${sc.pct}% (${sc.got} из ${sc.max}) — ${ok?'зачёт':'нужно повторить'}`,
     ...SECTIONS.map(s=>`• ${s.name()}: ${sc.per[s.id].ok}/${sc.per[s.id].max}`),
-    ms.length?`Где ошибалась:\n${ms.map(m=>'  – '+m).join('\n')}`:'Ошибок не было',
-    `Время: ${rec.mins} мин`,`Дата: ${d.toLocaleDateString('ru-RU')} ${d.toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'})}`,
-    ...(S.history.length>1?[`Прошлые попытки: ${S.history.filter(x=>x.attempt!==S.attempt).map(x=>x.pct+'%').join(', ')}`]:[])].join('\n');
-  box.append(h('p',{style:'margin:14px 0 0;font-weight:900'},'Скопируй результат и отправь учителю:'));
-  const pre=h('div',{class:'report'},rep);
-  const cb=h('button',{class:'btn green',onclick:async()=>{try{await navigator.clipboard.writeText(rep);cb.textContent='Скопировано! Вставь в чат учителю';}catch(e){const sel=getSelection(),rg=document.createRange();rg.selectNodeContents(pre);sel.removeAllRanges();sel.addRange(rg);cb.textContent='Текст выделен — нажми «Копировать»';}}},'Скопировать результат');
-  box.append(pre,cb);
-  box.append(h('div',{class:'navrow',style:'justify-content:center'},h('button',{class:ok?'btn ghost':'btn',onclick:restart},ok?'Пройти ещё раз с новыми числами':'Пройти заново с новыми числами')));
-  view.append(box);
+    ms.length?`Ошибки:\n${ms.map(m=>'  – '+m).join('\n')}`:'Ошибок не было',`Время: ${rec.mins} мин, попытка ${S.attempt}`].join('\n');
+  const cb=h('button',{class:'btn green',onclick:async()=>{try{await navigator.clipboard.writeText(rep);cb.textContent='Скопировано! Вставь в чат учителю';}catch(e){const ta=h('textarea',{class:'report',readonly:true});ta.value=rep;cb.after(ta);ta.select();cb.textContent='Выдели текст ниже и скопируй';}}},'Скопировать результат');
+  view.append(h('div',{class:'navrow',style:'justify-content:center'},cb),
+    h('div',{class:'navrow',style:'justify-content:center;margin-top:8px'},h('button',{class:'btn ghost sm',onclick:restart},'Пройти ещё раз с новыми числами')));
   if(ok) celebrate();
 }
 function restart(){const keep={history:S.history,attempt:S.attempt+1};S=Object.assign(fresh(),keep,{seed:(Date.now()*7919%2147483647)>>>0,step:0,start:Date.now()});G=generate(S.seed);lastFb=null;save();render();}
